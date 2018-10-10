@@ -1,30 +1,38 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.state={
-      usernameInput:'',
-      passwordInput:''
-    }
-  } 
-  changeHandler(key,e){
-    this.setState({[key]:e.target.value})
+    this.state = {
+      username: "",
+      password: ""
+    };
+  }
+  changeHandler(key, e) {
+    this.setState({ [key]: e.target.value });
+  }
+  login() {
+    alert(
+      "Username: " + this.state.username + " Password: " + this.state.password
+    );
   }
 
-  logInAlert(){
-    alert('Username: '+this.state.usernameInput+' Password: '+this.state.passwordInput)
+  render() {
+    return (
+      <div className="App">
+        <input
+          onChange={e => this.changeHandler("username", e)}
+          placeholder="Username"
+        />
+        <input
+          onChange={e => this.changeHandler("password", e)}
+          placeholder="Password"
+        />
+        <button onClick={() => this.login()}>Login</button>
+      </div>
+    );
   }
-  
-  render(){
-     return<div className='App'>
-     <input placeholder='username' onChange={(e)=>this.changeHandler('usernameInput',e)}></input>
-     <input placeholder='password' onChange={(e)=>this.changeHandler('passwordInput',e)}></input>
-    <button onClick={()=>this.logInAlert()}>Login</button>
-     </div>
-   }
 }
 
 export default App;

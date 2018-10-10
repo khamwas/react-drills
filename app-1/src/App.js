@@ -1,23 +1,26 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
+import "./App.css";
 
-class App extends Component{
-  constructor(){
+class App extends Component {
+  constructor() {
     super();
-    this.state={
-      input:''
-    }
+    this.state = {
+      input: ""
+    };
   }
-  changeHandler(e){
-    this.setState({input:e.target.value})
+  changeHandler(e) {
+    this.setState({ input: e.target.value });
   }
-  
-  render(){
-    let display=this.state.input.slice();
-    return<div className='App'>
-      <input className='text' onChange={(e)=>this.changeHandler(e)}></input>
-      <h2>{display}</h2>
-    </div>
+
+  render() {
+    return (
+      <div className="App">
+        <input onChange={e => this.changeHandler(e)} />
+        <br />
+        {this.state.input}
+      </div>
+    );
   }
 }
 
-export default App
+export default App;

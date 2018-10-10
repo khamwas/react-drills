@@ -3,32 +3,33 @@ import './App.css';
 import NewTask from './NewTask';
 import List from './List';
 
+
 class App extends Component {
   constructor(){
     super();
     this.state={
-    input: '',
-    list: []
+      input:'',
+      list:[]
+    }
+    this.update=this.update.bind(this);
   }
-  this.changeHandler=this.changeHandler.bind(this);
-  this.addTask=this.addTask.bind(this);
-}
-changeHandler(e){
-  this.setState({input:e.target.value})
-}
-addTask(){
-  let newList=this.state.list.slice();
-  newList.push(this.state.input);
-  this.setState({list:newList});
-  console.log(this.state.list)
-}
-
-  render(){
+  changeHandler(e){
+    this.setState({input:e.target.value})
+  }
+  update(){
+    const newList= this.state.list.slice();
+    newList.push(this.state.input)
+    this.setState({list:newList})
+  }
+render(){
   return<div className='App'>
   <h1>My to-do list:</h1>
-  <input placeholder='Enter New Task' onChange={(e)=>this.changeHandler(e)}></input>
-  <NewTask newTask={this.addTask}></NewTask>
+  <input 
+  placeholder='Enter new task'
+  onChange={(e)=>this.changeHandler(e)}></input>
+  <NewTask update={this.update}></NewTask>
   <List list={this.state.list}></List>
+
   </div>
 }
 }
