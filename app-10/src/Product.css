@@ -1,0 +1,27 @@
+a {
+  color: inherit;
+}
+
+.outerCont {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.productCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid black 1px;
+  min-width: 300px;
+  margin: 5px;
+  box-shadow: 10px 5px 20px;
+}
+
+.productImg {
+  max-width: 250px;
+  max-height: 250px;
+  overflow: hidden;
+}
